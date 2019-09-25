@@ -49,5 +49,35 @@ namespace CoreApiSample.Controllers
                 return BadRequest(ex.Message);
             } 
         }
+
+        [HttpPost("Save")]
+        public ActionResult Save(Employee employee)
+        {
+            try
+            {
+                new EmployeeEntry().Save(employee);
+                return Ok("Success");
+            }
+            catch (Exception ex)
+            {
+                Log.ErrorToFile(ex.Message);
+                return BadRequest(ex.Message);
+            } 
+        }
+
+        [HttpDelete("Delete")]
+        public ActionResult Delete(int id)
+        {
+            try
+            {
+                new EmployeeEntry().Delete(id);
+                return Ok("Success");
+            }
+            catch (Exception ex)
+            {
+                Log.ErrorToFile(ex.Message);
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }
