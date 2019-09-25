@@ -11,11 +11,18 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CoreApiSample.Controllers
 {
+    /// <summary>
+    /// Designation End point
+    /// </summary>
     [EnableCors("AllowOrigin")]
     [Route("api/[controller]")]
     [ApiController]
     public class DesignationController : ControllerBase
     {
+        /// <summary>
+        /// Get Action for dessignation list
+        /// </summary>
+        /// <returns>List of designations</returns>
         [HttpGet("Get")]
         public IActionResult Get()
         {
